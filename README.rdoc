@@ -1,0 +1,7 @@
+= sermonator
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 Brian Dunn. See LICENSE for details.
