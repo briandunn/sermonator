@@ -9,6 +9,7 @@ begin
     gem.email = "brianpatrickdunn@gmail.com"
     gem.homepage = "http://github.com/briandunn/sermonator"
     gem.authors = ["Brian Dunn"]
+    gem.executables = ['sermonator']
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
