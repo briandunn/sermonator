@@ -12,8 +12,13 @@ class Sermonator
           $stderr.puts options.opts
           return 1
         end
+ 
+        unless arguments.size == 1
+          $stderr.puts options.opts
+          return 1
+        end
 
-
+        input_file_name = arguments.first
       end
     end
   end
