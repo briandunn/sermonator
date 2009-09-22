@@ -1,6 +1,3 @@
-require 'xmlrpc/client'
-require 'uri'
-
 # http://www.devdaily.com/scw/ruby/blogclient-0.0.20041025/lib/blog/client.rb.shtml
 
 module Blog

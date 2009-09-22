@@ -19,6 +19,10 @@ class Sermonator
         end
 
         input_file_name = arguments.first
+        sermonator = Sermonator.new( input_file_name, options )
+        sermonator.compress
+        sermonator.upload
+        sermonator.post
       end
     end
   end
