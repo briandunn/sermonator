@@ -20,9 +20,9 @@ class Sermonator
 
         input_file_name = arguments.first
         sermonator = Sermonator.new( input_file_name, options )
-        sermonator.compress
-        sermonator.upload
-        sermonator.post
+        sermonator.compress if options[:compress]
+        sermonator.upload   if options[:upload]
+        sermonator.post     if options[:post]
       end
     end
   end

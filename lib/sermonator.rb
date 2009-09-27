@@ -6,21 +6,17 @@ require 'sermonator/options'
 require 'blog_client'
 class Sermonator
   DOMAIN   = 'tcf.theophil.us'
-  PASSWORD = 'TCF@|_|D!0'
 
-  attr_accessor :date, :title, :author, :infile, :full_title, :file_name
+  attr_accessor :date, :title, :author, :infile, :full_title, :file_name, :password
 
   def domain
     self.class::DOMAIN
   end
 
-  def password
-    self.class::PASSWORD
-  end
-
   def initialize( infile, options={} )
     @infile = infile
     @date = options[:date] || Date.today
+    @password = options[:password]
     @title = options[:title]
     @author = options[:author]
     @full_title = "#{date} ~ #{title}"

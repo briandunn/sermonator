@@ -19,6 +19,10 @@ class Sermonator
             self[:author] = author
           end
 
+          o.on('-p', '--password', :REQUIRED, 'the password for blog and ftp') do |password|
+            self[:password] = password
+          end
+
           o.accept( Date, /^\d{4}-\d{2}-\d{2}$/ ) do |date|
             Date.parse(date)
           end
