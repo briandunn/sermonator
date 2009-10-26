@@ -42,6 +42,16 @@ class Sermonator
         end
       end
 
+      def valid_options?
+        missing_options.blank?
+      end
+
+      def missing_options
+        %w{ infile password title author }.map do |opt|
+          self[opt]
+        end.select!(&:blank?)
+      end
+
       def merge(other)
         self.class.new(@orig_args + other.orig_args)
       end
