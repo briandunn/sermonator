@@ -19,15 +19,27 @@ class Sermonator
             self[:author] = author
           end
 
-          o.on('-p', '--password', :REQUIRED, 'the password for blog and ftp') do |password|
+          o.on('--password', :REQUIRED, 'the password for blog and ftp') do |password|
             self[:password] = password
           end
 
           o.accept( Date, /^\d{4}-\d{2}-\d{2}$/ ) do |date|
             Date.parse(date)
           end
-          o.on('-d', '--date', :OPTIONAL, Date, 'set the date. today by default.') do |date|
-            self[:date] = date
+          o.on('-d', '--date', :REQUIRED, Date, 'set the date. today by default.') do |date|
+            self[:date] = date 
+          end
+
+          o.on('-c', '--compress', :NONE, 'compress the input file') do |compress|
+            self[:compress] = true
+          end
+
+          o.on('-u', '--upload', :NONE, 'upload the compressed file') do |upload|
+            self[:upload] = true
+          end
+
+          o.on('-p', '--post', :NONE, 'create the post for the uploaded file') do |post|
+            self[:post] = true
           end
 
           o.on_tail('-h', '--help', 'display this help and exit') do
