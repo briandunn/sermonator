@@ -1,0 +1,4 @@
+* Use the word Episode instead of sermon (as in podcast episode)
+* The episode should be the main model.  It can then inform and request that a Master become a Stream.
+* that works well with like, episode.upload and episode.announce!
+
