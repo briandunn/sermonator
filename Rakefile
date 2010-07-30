@@ -1,42 +1,11 @@
 require 'rubygems'
 require 'rake'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "sermonator"
-    gem.summary = %Q{A command line tool for publishing a raw audio file to a WordPress blog, with all kinds of settings hardcoded to be useful at my church.}
-    gem.email = "brianpatrickdunn@gmail.com"
-    gem.homepage = "http://github.com/briandunn/sermonator"
-    gem.authors = ["Brian Dunn"]
-    gem.executables = ['sermonator']
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
+require 'spec/rake/spectask'
+desc "Run all examples"
+Spec::Rake::SpecTask.new('test') do |t|
+    t.spec_files = FileList['spec/**/*_spec.rb']
 end
-
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
-end
-
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/*_test.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
-end
-
 
 task :default => :test
 

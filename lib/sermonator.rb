@@ -1,3 +1,5 @@
+require 'controller'
+=begin
 require 'date'
 require 'net/ftp'
 require 'xmlrpc/client'
@@ -55,4 +57,4 @@ class Sermonator
 
 
 end
-
+=end

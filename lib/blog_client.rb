@@ -27,6 +27,7 @@ module Blog
       attr_accessor :userid, :postid, :link, :permaLink
       attr_accessor :title, :description, :dateCreated
       attr_accessor :mt_allow_comments, :mt_allow_pings, :mt_convert_breaks, :mt_text_more, :mt_excerpt, :mt_keywords, :mt_tb_ping_urls
+      attr_accessor :custom_fields
 
       def to_struct
         h = {}
@@ -40,6 +41,7 @@ module Blog
         h['mt_excerpt'] = @mt_excerpt unless @mt_excerpt.nil?
         h['mt_keywords'] = @mt_keywords unless @mt_keywords.nil?
         h['mt_tb_ping_urls'] = @mt_tb_ping_urls unless @mt_tb_ping_urls.nil?
+        h['custom_fields'] = @custom_fields 
         h
       end
     end # Content

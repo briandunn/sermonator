@@ -1,12 +1,13 @@
 require 'spec_helper'
-describe Stream do
+describe 'Stream' do
+  before {pending}
   describe 'creating the stream' do
     before do
       @stream = Stream.new
     end
     describe 'validating settings' do
       describe 'with no settings' do
-        it do
+        it 'should not be valid' do
           @stream.valid?.should be_false
         end
       end
