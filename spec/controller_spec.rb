@@ -1,7 +1,34 @@
+class Shoes
+  # accept any 'ole thing
+  def method_missing(*args, &block)
+  end
+  @@the_shoes = nil
+  class << self
+    def app(&block)
+      the_shoes.instance_eval(&block) if block_given? 
+    end
+    def the_shoes
+      @@the_shoes ||= new
+    end
+  end
+end
 require 'spec_helper'
-describe Controller do
+describe 'sermonator gui' do
   describe 'when no input file has been selected yet' do
-    it 'should not have a "go" button'
+    before do
+      @shoes = Shoes.the_shoes
+      @shoes.stub(:button)
+    end
+    it 'should not have a "go" button' do
+      @shoes.should_receive(:button).with('go').never
+      require 'spec_helper'
+    end
+    it 'should have a "select file" button' do
+      @shoes.should_receive(:button).with('select file')
+    end
+    after do
+      eval File.open("#{File.dirname(__FILE__)}/../lib/controller.rb").read
+    end
   end
   describe 'when an incompatable file is selected' do
     it 'should display an error'

@@ -1,4 +1,6 @@
 require 'controller'
+Shoes.app do
+end
 =begin
 require 'date'
 require 'net/ftp'
